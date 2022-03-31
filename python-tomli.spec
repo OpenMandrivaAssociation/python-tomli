@@ -19,9 +19,6 @@ v1.0.0.
 %prep
 %autosetup -p1 -n %{pypi_name}-%{version}
 
-%generate_buildrequires
-%pyproject_buildrequires -r
-
 %build
 %py_build
 
