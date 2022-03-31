@@ -1,27 +1,18 @@
 %global pypi_name tomli
 
 Name:           python-%{pypi_name}
-Version:        2.0.0
-Release:        %mkrel 2
+Version:        2.0.1
+Release:        1
 Summary:        A little TOML parser for Python
 License:        MIT
 Group:          Development/Python
 URL:            https://pypi.org/project/tomli/
-Source0:        %{pypi_source}
+Source0:        https://pypi.io/packages/source/f/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
-BuildRequires:  pyproject-rpm-macros
-BuildRequires:  python3-devel
-BuildRequires:  python3-flit-core
+BuildRequires:  python-devel
+BuildRequires:  python-flit-core
 
 %description
-Tomli is a Python library for parsing TOML and is fully compatible with TOML
-v1.0.0.
-
-%package -n python3-tomli
-Summary:          A little TOML parser for Python
-Group:            Development/Python
-
-%description -n python3-tomli
 Tomli is a Python library for parsing TOML and is fully compatible with TOML
 v1.0.0.
 
@@ -32,12 +23,11 @@ v1.0.0.
 %pyproject_buildrequires -r
 
 %build
-%pyproject_wheel
+%py_build
 
 %install
-%pyproject_install
-%pyproject_save_files %{pypi_name}
+%py_install
 
-%files -n python3-%{pypi_name} -f %{pyproject_files}
+%files
 %doc README.md
 %license LICENSE
