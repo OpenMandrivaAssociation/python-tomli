@@ -11,6 +11,7 @@ Source0:        https://pypi.io/packages/source/f/%{pypi_name}/%{pypi_name}-%{ve
 BuildArch:      noarch
 BuildRequires:  python-devel
 BuildRequires:  python-flit-core
+BuildRequires:  python-pip
 
 %description
 Tomli is a Python library for parsing TOML and is fully compatible with TOML
@@ -20,11 +21,14 @@ v1.0.0.
 %autosetup -p1 -n %{pypi_name}-%{version}
 
 %build
-%py_build
+mkdir wheels
+pip wheel --wheel-dir wheels --no-deps --no-build-isolation --verbose .
 
 %install
-%py_install
+pip install --root=%{buildroot} --no-deps --verbose --ignore-installed --no-warn-script-location --no-index --no-cache-dir --find-links wheels wheels/*.whl
 
 %files
 %doc README.md
 %license LICENSE
+%{py_puresitedir}/tomli-*.dist-info
+%{py_puresitedir}/tomli
