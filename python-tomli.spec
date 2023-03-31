@@ -2,7 +2,7 @@
 
 Name:           python-%{pypi_name}
 Version:        2.0.1
-Release:        1
+Release:        2
 Summary:        A little TOML parser for Python
 License:        MIT
 Group:          Development/Python
