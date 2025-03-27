@@ -1,13 +1,13 @@
 %global pypi_name tomli
 
 Name:           python-%{pypi_name}
-Version:        2.0.1
-Release:        2
+Version:        2.2.1
+Release:        1
 Summary:        A little TOML parser for Python
 License:        MIT
 Group:          Development/Python
 URL:            https://pypi.org/project/tomli/
-Source0:        https://pypi.io/packages/source/f/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:        https://pypi.io/packages/source/t/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 BuildRequires:  python-devel
 BuildRequires:  python-flit-core
