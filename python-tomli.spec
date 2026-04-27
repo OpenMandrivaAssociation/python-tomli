@@ -1,14 +1,16 @@
-%global pypi_name tomli
+%define module tomli
 
-Name:           python-%{pypi_name}
-Version:        2.3.0
+Name:           python-tomli
+Version:        2.3.1
 Release:        1
 Summary:        A little TOML parser for Python
 License:        MIT
 Group:          Development/Python
 URL:            https://pypi.org/project/tomli/
-Source0:        https://pypi.io/packages/source/t/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:        https://pypi.io/packages/source/t/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
+
 BuildArch:      noarch
+BuildRequires:	python%{pyver}dist(flit-core)
 BuildRequires:  python%{pyver}dist(pip)
 
 %description
@@ -16,19 +18,16 @@ Tomli is a Python library for parsing TOML and is fully compatible with TOML
 v1.0.0.
 
 %prep
-%autosetup -p1 -n %{pypi_name}-%{version}
+%autosetup -p1 -n %{module}-%{version}
 
 %build
-#mkdir wheels
-#pip wheel --wheel-dir wheels --no-deps --no-build-isolation --verbose .
 %py_build
 
 %install
-#pip install --root=%{buildroot} --no-deps --verbose --ignore-installed --no-warn-script-location --no-index --no-cache-dir --find-links wheels wheels/*.whl
 %py_install
 
 %files
 %doc README.md
 %license LICENSE
-%{py_puresitedir}/tomli-*.dist-info
-%{py_puresitedir}/tomli
+%{py_puresitedir}/%{module}
+%{py_puresitedir}/%{module}-%{version}.dist-info
