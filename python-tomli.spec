@@ -1,7 +1,7 @@
 %define module tomli
 
 Name:		python-tomli
-Version:	2.4.1
+Version:	2.5.0
 Release:	1
 Summary:	A little TOML parser for Python
 License:	MIT
